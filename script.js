@@ -28,12 +28,19 @@ const animate = function () {
 // Function to update rotation based on received data
 function updateRotation(data) {
   // Assuming data is a string with values "0" or "10"
-  const rotationX = 0;
-  const rotationY = data.trim() === '10' ? 1.0 : 0.0;  // You can modify this based on your requirements
+  // Split the string by commas
+let dataArray = data.split(',');
+
+// Assign each part to a variable
+let variable_x = parseFloat(dataArray[0]);
+let variable_y = parseFloat(dataArray[1]);
+let variable_z = parseFloat(dataArray[2]);
 
   // Update the rotation of the box
-  box.rotation.x = rotationX;
-  box.rotation.y = rotationY;
+  box.rotation.x = variable_x;
+  box.rotation.y = variable_y;
+  box.rotation.z = variable_z;
+
 }
 
 // Start the animation loop
